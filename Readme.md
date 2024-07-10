@@ -49,13 +49,13 @@ Step 2: Set Up Your Strapi Application
 Create a Strapi app (if you don't have one already):
 
 bash
-Copy code
+
 npx create-strapi-app my-strapi-app --quickstart
 cd my-strapi-app
 Create a Dockerfile in the root of your Strapi app:
 
 Dockerfile
-Copy code
+
 # Use an official Node.js image as the base image
 FROM node:16
 
@@ -78,7 +78,7 @@ EXPOSE 1337
 CMD ["npm", "run", "develop"]
 Create a .dockerignore file to prevent unnecessary files from being copied into the Docker image:
 
-Copy code
+
 node_modules
 build
 .dockerignore
@@ -110,17 +110,20 @@ APP_KEYS: your_app_keys
 API_TOKEN_SALT: your_api_token_salt
 ADMIN_JWT_SECRET: your_admin_jwt_secret
 JWT_SECRET: your_jwt_secret
+
 Step 4: Update React Application to Call Strapi API
 Update the React application to make API calls to the Strapi API. For example, in your React component:
 
 javascript
-Copy code
+
 useEffect(() => {
 fetch('http://localhost:1337/api/your-endpoint')
 .then(response => response.json())
 .then(data => setData(data))
 .catch(error => console.error('Error fetching data:', error));
 }, []);
+
+
 Step 5: Build and Run Containers
 Build and run the containers using Docker Compose:
 
